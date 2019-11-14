@@ -101,8 +101,8 @@ Name                       | Default
 `DEBUG`                    | false
 `BEEHIVE_ENABLE_EVENTS`    | false
 `BEEHIVE_MOCK_STREAM`      | false
-`BEEHIVE_PARTITION_KEY`    | beehive_partition_key
-`BEEHIVE_STREAM`           | beehive_stream
+`BEEHIVE_PARTITION_KEY`    | beehive-partition-key
+`BEEHIVE_STREAM`           | test-beehive-stream
 
 Run `node try-events.js` to run quick tests
 
@@ -117,7 +117,7 @@ npm test
 
 #### Testing Events
 
-First create a kinesis stream named `beehive_stream`.
+First create a kinesis stream named `test-beehive-stream`.
 
 This will run the tests and write events to kinesis:
 

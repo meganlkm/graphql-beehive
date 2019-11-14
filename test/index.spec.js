@@ -24,7 +24,7 @@ if (process.env.BEEHIVE_MOCK_STREAM == "yes") {
     })
     const AWS = require('aws-sdk');
     kinesis_mock = new AWS.Kinesis({endpoint: "http://localhost:4567"});
-    kinesis_mock.createStream({StreamName: "beehive_stream", ShardCount: 1}, console.log)
+    kinesis_mock.createStream({StreamName: "test-beehive-stream", ShardCount: 1}, console.log)
 }
 
 

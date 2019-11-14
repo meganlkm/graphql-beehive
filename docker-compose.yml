@@ -24,6 +24,7 @@ services:
       PGDATABASE: beehive
       PGHOST: postgres
       BEEHIVE_ENABLE_EVENTS: "yes"
+      BEEHIVE_STREAM: test-beehive-stream
       AWS_REGION: us-east-1
     ports:
       - 4022:4000

@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk')
 
-const BEEHIVE_STREAM = process.env.BEEHIVE_STREAM ? process.env.BEEHIVE_STREAM : "beehive_stream"
-const BEEHIVE_PARTITION_KEY = process.env.BEEHIVE_PARTITION_KEY ? process.env.BEEHIVE_PARTITION_KEY : "beehive_partition_key"
+const BEEHIVE_STREAM = process.env.BEEHIVE_STREAM ? process.env.BEEHIVE_STREAM : "test-beehive-stream"
+const BEEHIVE_PARTITION_KEY = process.env.BEEHIVE_PARTITION_KEY ? process.env.BEEHIVE_PARTITION_KEY : "beehive-partition-key"
 
 var client
 if (process.env.BEEHIVE_MOCK_STREAM == "yes") {

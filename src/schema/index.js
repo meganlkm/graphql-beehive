@@ -25,13 +25,24 @@ exports.schema = makeExecutableSchema({
         thing_id: ID!
     }
 
-    type Thing implements AnyThing @beehiveTable(table_name: "things", pk_column: "thing_id") {
+    type Thing implements AnyThing @beehiveTable(
+                table_name: "things",
+                pk_column: "thing_id",
+                table_type: native,
+                partition: "name",
+                native_indexes: [
+                    {name: "material_type", type: btree, columns: ["material", "type"]},
+                    {name: "tag", type: hash, columns: ["tags"]}
+                ],
+                native_exclude: ["dimensions"]
+    ) {
         thing_id: ID!
         name: String
         material: String
         type: TypeOfThing
         related: [RelatedThing!] @beehiveRelation(target_type_name: "RelatedThing", target_field_name: "thing")
         dimensions: [Float!]
+        timestamp: Datetime
         observations: [Observation!] @beehiveRelationTimeFilter(target_type_name: "Observation", target_field_name: "thing", timestamp_field_name: "timestamp")
         tags: [String!]
     }
@@ -42,6 +53,7 @@ exports.schema = makeExecutableSchema({
         material: String
         type: TypeOfThing
         tags: [String!]
+        timestamp: Datetime
     }
 
     type RelatedThing @beehiveTable(table_name: "rel_things") {
